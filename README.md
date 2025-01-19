@@ -161,6 +161,22 @@ This module defines a `Matrix` class that provides utility methods for basic mat
   matrix.updateRow(0, [1, 2, 3]);
   ```
 
+  ### Method: `reverse()`
+- Reverses the entire Matrix.
+- **Usage:**
+  ```js
+  matrix.reverse();
+  ```
+
+  
+  ### Method: `sort()`
+- sorts the entire Matrix.
+- **Usage:**
+  ```js
+  matrix.sort();
+  ```
+  
+
 ### Method: `updateColumn(index, value)`
 - Updates a specific column in the matrix.
 - **Parameters:**
