@@ -1,0 +1,16 @@
+{
+  "name": "matrixify.js",
+  "version": "1.1.0",
+  "description": "Matrices in Javascript",
+  "main": "matrix.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "matrix",
+    "javascript"
+  ],
+  "author": "@that0therguy",
+  "license": "ISC"
+}
