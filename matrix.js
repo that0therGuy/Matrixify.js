@@ -188,6 +188,37 @@ export class Matrix {
     convertToList(){
         return this.matrix.flat()
     }
+    reverse() {
+        // Reverse the order of rows
+        this.matrix.reverse();
+
+        // Reverse the order of elements in each row
+        for (let row of this.matrix) {
+            row.reverse();
+        }
+    }
+    sort() {
+        // Flatten the matrix to a 1D array
+        let flatArray = this.matrix.flat();
+
+        // Sort the array
+        flatArray.sort((a, b) => a - b); // Sorting in ascending order
+
+        // Reconstruct the matrix with sorted values
+        let rows = this.matrix.length;
+        let cols = this.matrix[0].length;
+        let sortedMatrix = [];
+
+        for (let i = 0; i < rows; i++) {
+            let row = flatArray.splice(0, cols); // Extract the next row from the sorted array
+            sortedMatrix.push(row);
+        }
+
+        // Update the matrix with the sorted matrix
+        this.matrix = sortedMatrix;
+    }
+
+
     isZeroMatrix(){
         for (let row of this.matrix){
             if (row.every(rows => rows === 0)){
