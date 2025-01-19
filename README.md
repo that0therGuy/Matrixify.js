@@ -203,8 +203,6 @@ console.log(multiplicationResult);
 const list = matrix.convertToList();
 console.log(list);
 
-// Access the Matrix
-matrix.matrix[x][y]
 ```
 
 
