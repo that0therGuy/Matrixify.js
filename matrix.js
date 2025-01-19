@@ -131,52 +131,44 @@ export class Matrix {
     }
     static matrixMultiplication(matrix1, matrix2) {
 
+
         let rows1 = matrix1.length;
         let cols1 = matrix1[0] ? matrix1[0].length : 0;
         let rows2 = matrix2.length;
         let cols2 = matrix2[0] ? matrix2[0].length : 0;
 
 
-        let maxRows = Math.max(rows1, rows2);
-        let maxCols = Math.max(cols1, cols2);
-
-
-
-        for (let i = 0; i < maxRows; i++) {
-            if (!matrix1[i]) {
-                matrix1[i] = [];
-            }
-            for (let j = matrix1[i].length; j < maxCols; j++) {
-                matrix1[i][j] = 0;
+        for (let i = 0; i < rows1; i++) {
+            while (matrix1[i].length < rows2) {
+                matrix1[i].push(0);
             }
         }
 
 
-        for (let i = 0; i < maxRows; i++) {
-            if (!matrix2[i]) {
-                matrix2[i] = [];
-            }
-            for (let j = matrix2[i].length; j < maxCols; j++) {
-                matrix2[i][j] = 0;
+        for (let i = 0; i < rows2; i++) {
+            while (matrix2[i].length < cols1) {
+                matrix2[i].push(0);
             }
         }
 
 
         let newMatrix = [];
 
-
-        for (let i = 0; i < maxRows; i++) {
+        for (let i = 0; i < rows1; i++) {
             let row = [];
-            for (let j = 0; j < maxCols; j++) {
-                let val1 = matrix1[i] && matrix1[i][j] !== undefined ? matrix1[i][j] : 0;
-                let val2 = matrix2[i] && matrix2[i][j] !== undefined ? matrix2[i][j] : 0;
-                row.push(val1 ** val2);
+            for (let j = 0; j < cols2; j++) {
+                let sum = 0;
+                for (let k = 0; k < cols1; k++) {
+                    sum += matrix1[i][k] * matrix2[k][j];
+                }
+                row.push(sum);
             }
             newMatrix.push(row);
         }
 
         return newMatrix;
     }
+
     firstMultiply() {
         let matrix = this.matrix;
         let newlist = [];
